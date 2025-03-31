@@ -1,7 +1,8 @@
-Vision
-Virtara’s mission is to empower athletes of all levels—recreational lifters, competitive athletes, and coaches—by providing highly technical, unbiased feedback based on biomechanics and exercise science. The platform will also serve as a tool for meet verification and community collaboration, fostering innovation and inclusivity in the lifting and sports science communities.
+Virtara is an open-source SaaS application designed to provide detailed tracking, impartial analysis, and data-driven performance insights for key lifts in powerlifting, Olympic lifting, and strongman. It combines pose analysis technology, custom LLMs, Google Gemini AI, and a calorie counter to create a comprehensive platform for athletes, coaches, and fitness enthusiasts.
 
-Core Features
+Virtara is built to empower users by offering highly technical feedback, progress tracking, real-time analysis, and nutrition tracking—all in one place, under one price. Whether you’re a recreational lifter, a competitive athlete, or a coach, Virtara provides the tools you need to optimize your performance and nutrition.
+
+Features
 1. Pose Analysis
 Technology: MediaPipe (initial), TensorFlow (custom models), Google Gemini AI.
 Metrics Tracked:
@@ -22,7 +23,6 @@ Example: "Your squat descent lasted 3.2 seconds, which is ideal for hypertrophy 
 Rep in Reserve (RIR):
 Calculate RIR to estimate how many reps the user could perform before failure.
 Formula:
-RIR can be estimated using bar velocity and power output:
 RIR
 =
 Max Velocity
@@ -36,7 +36,6 @@ Max Velocity×Fatigue Coefficient
 Max Velocity−Current Velocity
 ​
  
-The Fatigue Coefficient is determined based on the lift type and user input (e.g., perceived exertion).
 Example: "Your RIR for this set is 2, indicating you could perform 2 more reps before failure."
 2. Progress Tracking
 Metrics:
@@ -69,7 +68,22 @@ Technology:
 MediaPipe for pose detection.
 TensorFlow for advanced metric calculations.
 Socket.io for real-time communication.
-4. Community and Coaching Features
+4. Calorie Counter
+Features:
+Barcode Scanning:
+Scan food barcodes to quickly log nutritional information.
+AI Food Picture Analysis:
+Use AI to identify food items from pictures.
+Note: Users manually input food weights for accuracy.
+Manual Entry:
+Add custom foods and nutritional data.
+Daily Calorie and Macro Tracking:
+Track calories, protein, carbs, and fats.
+Example: "You’ve consumed 2,000 calories today, with 150g protein, 200g carbs, and 50g fats."
+Integration:
+Sync calorie and macro data with training metrics for holistic performance tracking.
+Example: "Your calorie intake this week aligns with your hypertrophy training goals."
+5. Community and Coaching Features
 Athlete-Coach Interaction:
 Direct messaging for feedback and guidance.
 Lift reviews with text and visual overlays.
@@ -81,7 +95,7 @@ Coaching Tools:
 Athlete management dashboard.
 Progress reports and goal tracking.
 Lift analysis tools.
-5. Meet Verification
+6. Meet Verification
 Use Cases:
 Real-time lift verification for powerlifting meets.
 VAR-style analysis for judges and sponsors.
@@ -91,7 +105,7 @@ Decision logging (approve/reject lifts).
 Technology:
 Socket.io for real-time communication.
 Google Gemini AI for advanced reasoning.
-6. Dedicated Camera (Future Development)
+7. Dedicated Camera (Future Development)
 Features:
 Built-in pose analysis and bar path tracking.
 Real-time feedback and visual overlays.
@@ -132,16 +146,6 @@ Text-Based Feedback:
 Example: "Your knee flexion during the squat descent is 45 degrees, which reduces quadriceps activation. Aim for 90–120 degrees to maximize strength."
 Visual Overlays:
 Example: Bar path trajectory and joint angle markers displayed on the video feed.
-Training Workflow
-1. Data Collection
-Annotate pose data with biomechanical insights and coaching cues.
-Expand the dataset with powerlifting meet videos and community submissions.
-2. Model Training
-Use TensorFlow to train the LLM.
-Fine-tune the model using annotated datasets.
-3. Validation
-Test the LLM on unseen data to evaluate accuracy and generalization.
-Gather feedback from users to refine the model.
 Technology Stack
 Frontend:
 Framework: Next.js.
@@ -164,3 +168,125 @@ Deployment:
 Platform: Azure.
 Containerization: Docker.
 Orchestration: Kubernetes (Azure Kubernetes Service).
+
+Open-Source Roadmap
+Phase 1: Initial Release (MVP)
+Timeline: 3–6 months
+
+Goals:
+Release the foundational components of Virtara.
+Provide basic functionality for pose analysis, progress tracking, and calorie counting.
+Ensure the codebase is well-documented and easy to set up.
+Deliverables:
+Core Features:
+Pose analysis using MediaPipe.
+Progress tracking (basic graphs and metrics).
+Calorie counter with barcode scanning and manual entry.
+User authentication (using Passport.js).
+Repository Setup:
+Host the project on GitHub or GitLab.
+Include a clear README.md with setup instructions.
+Documentation:
+Developer guide for setting up the project locally.
+API documentation for backend endpoints.
+Community Engagement:
+Create a Discord or Slack channel for contributors.
+Set up GitHub Issues for bug tracking and feature requests.
+Milestones:
+Publish the repository with the MVP codebase.
+Announce the project on platforms like Twitter, LinkedIn, and Reddit (e.g., r/Fitness, r/Powerlifting).
+Begin gathering feedback from early adopters.
+Phase 2: Custom LLM and Google Gemini AI Integration
+Timeline: 6–12 months
+
+Goals:
+Develop and integrate the custom LLM for exercise analysis.
+Integrate Google Gemini AI for advanced reasoning and multimodal analysis.
+Provide users with the option to use either the custom LLM or Google Gemini AI for feedback.
+Deliverables:
+Custom LLM Development:
+Use TensorFlow to train the LLM.
+Fine-tune the model using annotated datasets (e.g., powerlifting meet videos, biomechanical research).
+Incorporate reasoning capabilities for generating actionable insights.
+Google Gemini AI Integration:
+Use Google Cloud APIs to integrate Gemini AI into the backend.
+Enable multimodal analysis by combining pose data, video input, and textual reasoning.
+Feedback Customization:
+Adapt feedback based on user goals (e.g., strength, technique improvement, injury prevention).
+Documentation:
+Provide detailed documentation for the LLM and Gemini AI integration.
+Include guides for contributing to the LLM and using Gemini AI.
+Milestones:
+Release version 2.0 with custom LLM and Google Gemini AI integration.
+Publish the LLM training pipeline and Gemini AI integration as part of the open-source repository.
+Host a virtual event to showcase the capabilities of both models.
+Phase 3: Feature Expansion
+Timeline: 12–18 months
+
+Goals:
+Expand the dataset and improve the accuracy of the custom LLM and Gemini AI.
+Add advanced features like real-time analysis, coaching tools, and community features.
+Introduce calorie counter enhancements (e.g., AI food picture analysis).
+Deliverables:
+Dataset Expansion:
+Collect additional data from powerlifting meets, recreational lifters, and community submissions.
+Annotate new data to improve the accuracy of both the LLM and Gemini AI.
+Advanced Features:
+Real-time analysis using Socket.io.
+Visual overlays (e.g., bar path trajectory, joint angle markers).
+Coaching tools (e.g., athlete management dashboard, lift reviews).
+Community Features:
+Progress sharing (e.g., lift videos, PRs).
+Discussion forums and leaderboards.
+Calorie Counter Enhancements:
+Add AI food picture analysis for identifying food items.
+Allow users to sync calorie data with training metrics for holistic performance tracking.
+Documentation Updates:
+Add guides for contributing to the dataset and improving the LLM and Gemini AI.
+Expand API documentation for new features.
+Milestones:
+Release version 3.0 with advanced features and improved LLM and Gemini AI accuracy.
+Begin onboarding contributors for specific tasks (e.g., dataset annotation, feature development).
+Phase 4: Dedicated Camera Integration
+Timeline: 18–24 months
+
+Goals:
+Develop and integrate the dedicated camera with the Virtara platform.
+Provide open-source software for the camera (e.g., embedded pose analysis models).
+Enable VAR-style verification for lifts using Gemini AI.
+Deliverables:
+Camera Software:
+Pose analysis using TensorFlow Lite.
+Real-time feedback and visual overlays.
+Cloud syncing with the Virtara platform.
+Google Gemini AI Integration:
+Use Gemini AI for advanced reasoning during VAR-style verification.
+Example: Judges can monitor bar path and joint angles live to verify lift validity.
+Documentation:
+Provide setup instructions for the camera software.
+Include guides for integrating the camera with the platform.
+Milestones:
+Release version 4.0 with camera integration and Gemini AI-powered VAR verification.
+Partner with hardware manufacturers to produce the camera.
+Begin marketing the camera to gyms, powerlifting federations, and organizations.
+Phase 5: Community Growth and Sponsorships
+Timeline: 24–36 months
+
+Goals:
+Expand the community and encourage contributions.
+Introduce sponsorship opportunities for community challenges and leaderboards.
+Scale the platform for enterprise use (e.g., gyms, federations).
+Deliverables:
+Community Growth:
+Host hackathons and competitions to encourage contributions.
+Create tutorials and workshops for developers and users.
+Sponsorships:
+Partner with companies to sponsor community challenges and leaderboards.
+Offer branded content opportunities (e.g., sponsored lift analysis videos).
+Enterprise Features:
+Develop tools for gyms and federations (e.g., bulk athlete management, meet verification dashboards).
+Provide enterprise support packages.
+Milestones:
+Reach 10,000+ active users and contributors.
+Secure sponsorships from fitness brands and organizations.
+Release version 5.0 with enterprise features.
