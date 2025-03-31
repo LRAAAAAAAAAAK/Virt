@@ -5,6 +5,13 @@ import { FaXTwitter, FaInstagram, FaGithub, FaDiscord, FaYoutube, FaReddit } fro
 import Link from 'next/link';
 
 export default function HomePage() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<{ message: string; type: 'success' | 'error' | null }>({
+    message: '',
+    type: null,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // State to track which sections should be blurred (index corresponds to section)
   const [blurredSections, setBlurredSections] = useState<boolean[]>([false, false, false, false, false]);
 
@@ -97,6 +104,66 @@ export default function HomePage() {
     // although the core logic now relies less on the previous state.
   }, [sectionRefs]); // Removed blurredSections from dependencies
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ message: '', type: null });
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({ message: data.message, type: 'success' });
+        setEmail(''); // Clear the input on success
+      } else {
+        setStatus({ message: data.error, type: 'error' });
+      }
+    } catch (error) {
+      setStatus({
+        message: 'Failed to subscribe. Please try again later.',
+        type: 'error',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Update the form in both mobile and desktop sections
+  const emailForm = (
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-2">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="px-4 py-2.5 rounded-md text-white bg-black/30 placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 w-full sm:w-auto sm:flex-grow"
+        aria-label="Email for updates"
+        disabled={isSubmitting}
+      />
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full sm:w-auto px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {isSubmitting ? 'Subscribing...' : 'Notify Me'}
+      </button>
+    </form>
+  );
+
+  const statusMessage = status.message && (
+    <p className={`mt-2 text-sm ${status.type === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+      {status.message}
+    </p>
+  );
+
   return (
     <main className="relative w-full bg-primary">
       {/* Container that enables sticky behavior only on desktop */}
@@ -112,20 +179,8 @@ export default function HomePage() {
             </p>
             <div className="pt-2">
               <p className="text-base text-gray-400 font-inter mb-2">Stay updated:</p>
-              <form className="flex flex-col items-center justify-center gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="px-4 py-2.5 rounded-md text-white bg-black/30 placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 w-full"
-                  aria-label="Email for updates"
-                />
-                <button
-                  type="submit"
-                  className="w-full px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200"
-                >
-                  Notify Me
-                </button>
-              </form>
+              {emailForm}
+              {statusMessage}
             </div>
             <h2 className="text-3xl font-semibold text-white font-poppins pt-4">
               Coming Soon
@@ -287,20 +342,8 @@ export default function HomePage() {
             </p>
             <div className="pt-4">
               <p className="text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
-              <form className="flex flex-row items-center justify-center gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="px-4 py-2.5 rounded-md text-white bg-black/30 placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 w-auto flex-grow max-w-md"
-                  aria-label="Email for updates"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200"
-                >
-                  Notify Me
-                </button>
-              </form>
+              {emailForm}
+              {statusMessage}
             </div>
             <h2 className="text-4xl font-semibold text-white font-poppins pt-4">
               Coming Soon
@@ -546,20 +589,8 @@ export default function HomePage() {
             </p>
             <div className="pt-4">
               <p className="text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
-              <form className="flex flex-row items-center justify-center gap-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="px-4 py-2.5 rounded-md text-white bg-black/30 placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 w-auto flex-grow max-w-md"
-                  aria-label="Email for updates"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200"
-                >
-                  Notify Me
-                </button>
-              </form>
+              {emailForm}
+              {statusMessage}
             </div>
             <h2 className="text-4xl font-semibold text-white font-poppins pt-4">
               Coming Soon
