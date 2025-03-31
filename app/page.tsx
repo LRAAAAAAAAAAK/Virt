@@ -175,7 +175,7 @@ export default function HomePage() {
               Virtara
             </h1>
             <p className="text-lg text-gray-300 font-inter max-w-2xl mx-auto">
-              Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
+              Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback to enhance performance.
             </p>
             <div className="pt-2">
               <p className="text-base text-gray-400 font-inter mb-2">Stay updated:</p>
@@ -186,13 +186,13 @@ export default function HomePage() {
               Coming Soon
             </h2>
             <div className="flex justify-center gap-6 pt-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
+              <a href="https://www.twitter.com/virtara_" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
                 <FaXTwitter size={24} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
+              <a href="https://www.instagram.com/virtara_" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
                 <FaInstagram size={24} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
+              <a href="https://www.github.com/virtara" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
                 <FaGithub size={24} />
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-secondary hover:text-white transition-colors duration-200">
@@ -338,7 +338,7 @@ export default function HomePage() {
               Virtara
             </h1>
             <p className="text-xl text-gray-300 font-inter max-w-2xl mx-auto">
-              Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
+              Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback to enhance performance.
             </p>
             <div className="pt-4">
               <p className="text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
@@ -349,13 +349,13 @@ export default function HomePage() {
               Coming Soon
             </h2>
             <div className="flex justify-center gap-6 pt-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
+              <a href="https://www.twitter.com/virtara_" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
                 <FaXTwitter size={24} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
+              <a href="https://www.instagram.com/virtara_" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
                 <FaInstagram size={24} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
+              <a href="https://www.github.com/virtara" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
                 <FaGithub size={24} />
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-secondary hover:text-white transition-colors duration-200">
@@ -585,7 +585,7 @@ export default function HomePage() {
               Virtara
             </h1>
             <p className="text-xl text-gray-300 font-inter max-w-2xl mx-auto">
-              Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
+              Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback to enhance performance.
             </p>
             <div className="pt-4">
               <p className="text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
@@ -596,13 +596,13 @@ export default function HomePage() {
               Coming Soon
             </h2>
             <div className="flex justify-center gap-6 pt-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
+              <a href="https://www.twitter.com/virtara_" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
                 <FaXTwitter size={24} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
+              <a href="https://www.instagram.com/virtara_" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
                 <FaInstagram size={24} />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
+              <a href="https://www.github.com/virtara" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
                 <FaGithub size={24} />
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-secondary hover:text-white transition-colors duration-200">
