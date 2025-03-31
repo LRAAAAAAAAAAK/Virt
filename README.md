@@ -1,42 +1,119 @@
-Virtara is an open-source SaaS application designed to provide detailed tracking, impartial analysis, and data-driven performance insights for key lifts in powerlifting, Olympic lifting, and strongman. It combines pose analysis technology, custom LLMs, Google Gemini AI, and a calorie counter to create a comprehensive platform for athletes, coaches, and fitness enthusiasts.
+Virtara is an open-source SaaS application designed to provide exercise analysis, progress tracking, and nutrition tracking for athletes, coaches, and fitness enthusiasts. The platform leverages pose analysis technology, custom LLMs, Google Gemini AI, and cryptocurrency integration to deliver highly technical, unbiased feedback on key lifts in powerlifting, Olympic lifting, and strongman. Additionally, Virtara includes a calorie counter with barcode scanning and AI-based food picture analysis, making it a comprehensive solution for performance and nutrition tracking.
 
-Virtara is built to empower users by offering highly technical feedback, progress tracking, real-time analysis, and nutrition tracking—all in one place, under one price. Whether you’re a recreational lifter, a competitive athlete, or a coach, Virtara provides the tools you need to optimize your performance and nutrition.
+Virtara is built to:
+
+Empower users with data-driven insights to improve their performance.
+Provide real-time feedback during training sessions.
+Enable meet verification for powerlifting federations.
+Foster a community of athletes and coaches through shared progress and collaboration.
+Integrate cryptocurrency for rewards, payments, and funding.
+
+
+Goals and Objectives:
+
+Virtara aims to:
+
+Provide Impartial Exercise Analysis:
+
+Deliver highly technical feedback based on pose analysis, biomechanics, and exercise science.
+Use custom LLMs and Google Gemini AI to generate actionable insights tailored to user goals (e.g., strength, technique improvement, injury prevention).
+Enable Progress Tracking:
+
+Track key metrics such as bar path, joint angles, velocity, power output, control, time under tension (TUT), and Rep in Reserve (RIR).
+Visualize trends over time to help users monitor improvements and set goals.
+Offer Real-Time Feedback:
+
+Provide instant feedback during training sessions using pose analysis and AI reasoning.
+Enable VAR-style verification for powerlifting meets, allowing judges and sponsors to monitor lifts live.
+Integrate Nutrition Tracking:
+
+Include a calorie counter with barcode scanning and AI food picture analysis.
+Allow users to manually input food weights and track daily calorie and macronutrient intake.
+Foster Community and Collaboration:
+
+Create a platform for athletes to share progress, participate in challenges, and learn from others.
+Provide tools for coaches to manage athletes, analyze lifts, and offer feedback.
+Support Open-Source Development:
+
+Build a transparent, collaborative platform that encourages contributions from developers, researchers, and fitness enthusiasts.
+Provide detailed documentation and a clear roadmap to guide contributors.
+Integrate Cryptocurrency:
+
+Use Solana blockchain for fast, low-cost transactions.
+Enable payments in USDC for subscriptions and services.
+Maintain a constant value for Virtara Token to support funding and rewards.
+
 
 Features
-1. Pose Analysis
+1. 1. Pose Analysis
 Technology: MediaPipe (initial), TensorFlow (custom models), Google Gemini AI.
-Metrics Tracked:
-Bar path trajectory.
-Joint angles (e.g., knees, hips, shoulders).
-Velocity and acceleration.
-Symmetry and balance.
-Range of motion (ROM).
-Power Output:
-Estimate power based on barbell weight, velocity, and acceleration.
-Example: "Your power output during the deadlift was 800 watts, which is optimal for your weight class."
-Control:
-Analyze movement stability and control during lifts (e.g., barbell wobble, joint stability).
-Example: "Your barbell control during the bench press improved by 15% compared to last month."
-Time Under Tension (TUT):
-Measure the duration of muscle engagement during lifts.
-Example: "Your squat descent lasted 3.2 seconds, which is ideal for hypertrophy training."
-Rep in Reserve (RIR):
-Calculate RIR to estimate how many reps the user could perform before failure.
-Formula:
-RIR
-=
-Max Velocity
-−
-Current Velocity
-Max Velocity
-×
-Fatigue Coefficient
-RIR= 
-Max Velocity×Fatigue Coefficient
-Max Velocity−Current Velocity
-​
- 
+
+Metrics Tracked and Calculations:
+1. Bar Path Trajectory:
+Definition: The path the barbell travels during a lift, measured in 2D or 3D space.
+Calculation:
+Extract the barbell’s position frame-by-frame using pose detection (e.g., MediaPipe or TensorFlow).
+Plot the positions over time to visualize the trajectory.
+Deviation:
+Calculate the deviation from the optimal path using: [Calculation Here]
+
+2. Joint Angles
+Joint Angles:
+Definition: The angles formed at key joints (e.g., knees, hips, shoulders) during different phases of the lift.
+Calculation:
+Use pose detection to extract joint coordinates (e.g., hip, knee, ankle).
+Calculate angles using the law of cosines: Angle = arcoss (a2 + b2 - c2 / 2ab)
+Example: "Your knee angle during the squat descent is 110 degrees, which is optimal for glute activation."
+Example: "Your bar path deviated by 3 cm during the pull phase."
+
+3. Velocity and Acceleration:
+Definition: The speed and rate of change of speed of the barbell during the lift.
+Calculation:
+Velocity: [Calculation Here]
+Example: "Your barbell velocity during the concentric phase is 0.8 m/s."
+Acceleration: [Calculation Here]
+Example: "Your barbell acceleration during the pull phase is 1.2 m/s^2."
+
+4. Symmetry and Balance:
+Definition: The comparison of left and right side movements to identify imbalances.
+Calculation:
+Extract joint positions for both sides (e.g., left and right shoulders, hips, knees).
+Symmetry Balance = Left Side Metric - Right Side Metric / Average Metric x 100
+Example: "Your left-right symmetry is 95%, indicating excellent balance."
+
+5. Definition: The total distance a joint travels during a lift.
+Calculation: ROM= Max Position − Min Position
+Measure the maximum and minimum positions of the joint during the lift.
+Example: "Your hip ROM during the squat is 40 cm, which is ideal for depth."
+
+6. Power Output
+Definition: The rate at which work is done during the lift.
+Calculation: Power = Force * Velocity / Time
+             Force = Mass * Acceleration
+             Where mass is the weight of the barbell.
+Example: "Your power output during the deadlift is 800 watts, which is optimal for your weight class."
+
+7. Definition: The stability of the barbell and joints during the lift.
+Calculation:
+    Measure deviations in barbell position and joint angles over time.
+    Calculate the standard deviation of the barbell’s trajectory:
+    Control = 1 - Standard Deviation of Bar Path
+    Example: "Your barbell control during the bench press improved by 15% compared to last month."
+
+8. Time Under Tension
+    Definition: The total time muscles are engaged during a lift.
+    Calculation:
+        Measure the duration of the eccentric and concentric phases of the lift:
+        Time Under Tension = TimeECCENTRIC + TimeCONCENTRIC
+        Example: "Your squat descent lasted 3.2 seconds, which is ideal for hypertrophy training."
+
+9. Rep in Reserve (RIR):
+    Definition: The estimated number of reps a user could perform before failure.
+    Calculation:
+    Reps in Reserve = Max Velocity - Current Velocity / Max Velocity * Fatigue Coefficient
 Example: "Your RIR for this set is 2, indicating you could perform 2 more reps before failure."
+
+
 2. Progress Tracking
 Metrics:
 Historical trends for bar path, joint angles, lift velocity, and PRs.
@@ -290,3 +367,9 @@ Milestones:
 Reach 10,000+ active users and contributors.
 Secure sponsorships from fitness brands and organizations.
 Release version 5.0 with enterprise features.
+
+How to Contribute
+Fork the repository and clone it locally.
+Follow the setup instructions in the README.md.
+Submit pull requests for bug fixes, features, or documentation improvements.
+Join the community on Discord for discussions and collaboration.
