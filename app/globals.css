@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-white; /* Default background and text color */
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  /* Add Mask Utility */
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%); /* For Safari */
+  }
+
+  /* Add Blur Utility */
+  .blur-underneath {
+    filter: blur(8px); 
+    /* Optional: slightly reduce opacity */
+    /* opacity: 0.8; */
+  }
+
+  /* Add transition utility for filter */
+  .transition-filter {
+    transition-property: filter, opacity; /* Add opacity if using */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
