@@ -6,16 +6,21 @@ const prisma = new PrismaClient();
 // Initialize database function
 async function initializeDatabase() {
   try {
-    // Try to create the table if it doesn't exist
+    // Create table
     await prisma.$executeRaw`
       CREATE TABLE IF NOT EXISTS "Subscriber" (
         "id" SERIAL PRIMARY KEY,
         "email" TEXT NOT NULL,
         "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
         "updatedAt" TIMESTAMP(3) NOT NULL
-      );
-      CREATE UNIQUE INDEX IF NOT EXISTS "Subscriber_email_key" ON "Subscriber"("email");
+      )
     `;
+
+    // Create index in a separate statement
+    await prisma.$executeRaw`
+      CREATE UNIQUE INDEX IF NOT EXISTS "Subscriber_email_key" ON "Subscriber"("email")
+    `;
+
     return true;
   } catch (error) {
     console.error('Database initialization error:', error);
@@ -26,7 +31,13 @@ async function initializeDatabase() {
 export async function POST(request: Request) {
   try {
     // Initialize database if needed
-    await initializeDatabase();
+    const initialized = await initializeDatabase();
+    if (!initialized) {
+      return NextResponse.json(
+        { error: 'Database initialization failed. Please try again later.' },
+        { status: 500 }
+      );
+    }
 
     const { email } = await request.json();
 
@@ -40,26 +51,42 @@ export async function POST(request: Request) {
     }
 
     // Check if email already exists
-    const existingSubscriber = await prisma.subscriber.findUnique({
-      where: { email },
-    });
+    try {
+      const existingSubscriber = await prisma.subscriber.findUnique({
+        where: { email },
+      });
 
-    if (existingSubscriber) {
-      return NextResponse.json(
-        { message: 'You are already subscribed!' },
-        { status: 200 }
-      );
+      if (existingSubscriber) {
+        return NextResponse.json(
+          { message: 'You are already subscribed!' },
+          { status: 200 }
+        );
+      }
+    } catch (error) {
+      console.error('Error checking existing subscriber:', error);
+      // Continue with creation attempt even if check fails
     }
 
     // Create new subscriber
-    await prisma.subscriber.create({
-      data: { email },
-    });
+    try {
+      await prisma.subscriber.create({
+        data: {
+          email,
+          updatedAt: new Date(), // Explicitly set updatedAt
+        },
+      });
 
-    return NextResponse.json(
-      { message: 'Successfully subscribed!' },
-      { status: 201 }
-    );
+      return NextResponse.json(
+        { message: 'Successfully subscribed!' },
+        { status: 201 }
+      );
+    } catch (error) {
+      console.error('Error creating subscriber:', error);
+      return NextResponse.json(
+        { error: 'Failed to subscribe. Please try again later.' },
+        { status: 500 }
+      );
+    }
   } catch (error) {
     console.error('Subscription error:', error);
     return NextResponse.json(
