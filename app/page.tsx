@@ -102,16 +102,16 @@ export default function HomePage() {
       {/* Hero Section - index 0 */}
       <section 
         ref={sectionRefs[0]} 
-        className={`sticky top-0 h-screen flex flex-col items-center justify-center bg-primary p-10 text-center z-10 transition-filter duration-300 ease-in-out ${blurredSections[0] ? 'blur-underneath' : ''}`}>
-        <div className="space-y-6">
-          <h1 className="text-6xl font-bold text-secondary font-poppins">
+        className={`sticky top-0 min-h-screen flex flex-col items-center justify-center bg-primary p-4 sm:p-10 text-center z-10 transition-filter duration-300 ease-in-out ${blurredSections[0] ? 'blur-underneath' : ''}`}>
+        <div className="space-y-4 sm:space-y-6">
+          <h1 className="text-4xl sm:text-6xl font-bold text-secondary font-poppins">
             Virtara
           </h1>
-          <p className="text-xl text-gray-300 font-inter max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 font-inter max-w-2xl mx-auto">
             Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
           </p>
-          <div className="pt-4">
-            <p className="text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
+          <div className="pt-2 sm:pt-4">
+            <p className="text-base sm:text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
             <form className="flex flex-col sm:flex-row sm:items-center justify-center gap-2">
               <input
                 type="email"
@@ -156,12 +156,12 @@ export default function HomePage() {
       {/* Goals and Objectives Section - index 1 */}
       <section 
         ref={sectionRefs[1]} 
-        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-10 lg:p-20 z-20 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[1] ? 'blur-underneath' : ''}`}>
-        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
-          <h2 className="text-5xl font-bold text-center mb-16 font-poppins">
+        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-4 sm:p-10 lg:p-20 z-20 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[1] ? 'blur-underneath' : ''}`}>
+        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16 font-poppins">
             Goals <span className="text-secondary">and</span> Objectives
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-12">
             {/* Goal Cards */}
             <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
               <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
@@ -218,12 +218,12 @@ export default function HomePage() {
       {/* Features Section - index 2 */}
       <section 
         ref={sectionRefs[2]} 
-        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-10 lg:p-20 z-30 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[2] ? 'blur-underneath' : ''}`}>
-        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
-          <h2 className="text-5xl font-bold text-center mb-16 font-poppins">
+        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-4 sm:p-10 lg:p-20 z-30 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[2] ? 'blur-underneath' : ''}`}>
+        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16 font-poppins">
             <span className="text-secondary">Core</span> Features
           </h2>
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 lg:gap-12">
             <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
               <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
                 Pose Analysis
@@ -269,12 +269,12 @@ export default function HomePage() {
       {/* Key Metrics Section - index 3 */}
       <section 
         ref={sectionRefs[3]} 
-        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-10 lg:p-20 z-40 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[3] ? 'blur-underneath' : ''}`}>
-        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
-          <h2 className="text-5xl font-bold text-center mb-16 font-poppins">
+        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-4 sm:p-10 lg:p-20 z-40 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[3] ? 'blur-underneath' : ''}`}>
+        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16 font-poppins">
             Key <span className="text-secondary">Metrics</span>
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-12">
             {/* Metric Cards */}
             <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
               <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
@@ -331,12 +331,12 @@ export default function HomePage() {
       {/* Open Questions Section - index 4 */}
       <section 
         ref={sectionRefs[4]} 
-        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-10 lg:p-20 z-50 transition-filter duration-300 ease-in-out ${blurredSections[4] ? 'blur-underneath' : ''}`}>
-        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
-          <h2 className="text-5xl font-bold text-center mb-16 font-poppins">
+        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-4 sm:p-10 lg:p-20 z-50 transition-filter duration-300 ease-in-out ${blurredSections[4] ? 'blur-underneath' : ''}`}>
+        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
+          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16 font-poppins">
             Open <span className="text-secondary">Questions</span>
           </h2>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {
               [
                 "What specific datasets will be used to train the custom LLM?",
@@ -351,7 +351,7 @@ export default function HomePage() {
               ].map((question, index) => (
                 <p 
                   key={index} 
-                  className={`font-inter text-lg p-4 rounded ${index % 2 === 0 ? 'bg-white/5' : 'bg-transparent'} transition-colors duration-200`}
+                  className={`font-inter text-base sm:text-lg p-3 sm:p-4 rounded ${index % 2 === 0 ? 'bg-white/5' : 'bg-transparent'} transition-colors duration-200`}
                 >
                   <span className="text-secondary mr-2">?</span> {question}
                 </p>
@@ -363,16 +363,16 @@ export default function HomePage() {
 
       {/* Hero Section Again - index 5 (Now with highest z-index) */}
       <section 
-        className={`sticky top-0 h-screen flex flex-col items-center justify-center bg-primary p-10 text-center z-60 transition-filter duration-300 ease-in-out`}>
-        <div className="space-y-6">
-          <h1 className="text-6xl font-bold text-secondary font-poppins">
+        className={`sticky top-0 min-h-screen flex flex-col items-center justify-center bg-primary p-4 sm:p-10 text-center z-60 transition-filter duration-300 ease-in-out`}>
+        <div className="space-y-4 sm:space-y-6">
+          <h1 className="text-4xl sm:text-6xl font-bold text-secondary font-poppins">
             Virtara
           </h1>
-          <p className="text-xl text-gray-300 font-inter max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-300 font-inter max-w-2xl mx-auto">
             Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
           </p>
-          <div className="pt-4">
-            <p className="text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
+          <div className="pt-2 sm:pt-4">
+            <p className="text-base sm:text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
             <form className="flex flex-col sm:flex-row sm:items-center justify-center gap-2">
               <input
                 type="email"
