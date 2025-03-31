@@ -99,320 +99,494 @@ export default function HomePage() {
 
   return (
     <main className="relative w-full bg-primary">
-      {/* Hero Section - index 0 */}
-      <section 
-        ref={sectionRefs[0]} 
-        className={`sticky top-0 min-h-screen flex flex-col items-center justify-center bg-primary p-4 sm:p-10 text-center z-10 transition-filter duration-300 ease-in-out ${blurredSections[0] ? 'blur-underneath' : ''}`}>
-        <div className="space-y-4 sm:space-y-6">
-          <h1 className="text-4xl sm:text-6xl font-bold text-secondary font-poppins">
-            Virtara
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-300 font-inter max-w-2xl mx-auto">
-            Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
-          </p>
-          <div className="pt-2 sm:pt-4">
-            <p className="text-base sm:text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
-            <form className="flex flex-col sm:flex-row sm:items-center justify-center gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-4 py-2.5 rounded-md text-white bg-black/30 placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 w-full sm:w-auto sm:flex-grow"
-                aria-label="Email for updates"
-              />
-              <button
-                type="submit"
-                className="px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200"
-              >
-                Notify Me
-              </button>
-            </form>
+      {/* Container that enables sticky behavior only on desktop */}
+      <div className="md:hidden">
+        {/* Mobile Layout - Simple flowing sections */}
+        <section className="min-h-screen flex flex-col items-center justify-center p-4 text-center">
+          <div className="space-y-4">
+            <h1 className="text-4xl font-bold text-secondary font-poppins">
+              Virtara
+            </h1>
+            <p className="text-lg text-gray-300 font-inter max-w-2xl mx-auto">
+              Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
+            </p>
+            <div className="pt-2">
+              <p className="text-base text-gray-400 font-inter mb-2">Stay updated:</p>
+              <form className="flex flex-col items-center justify-center gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="px-4 py-2.5 rounded-md text-white bg-black/30 placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 w-full"
+                  aria-label="Email for updates"
+                />
+                <button
+                  type="submit"
+                  className="w-full px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200"
+                >
+                  Notify Me
+                </button>
+              </form>
+            </div>
+            <h2 className="text-3xl font-semibold text-white font-poppins pt-4">
+              Coming Soon
+            </h2>
+            <div className="flex justify-center gap-6 pt-4">
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaXTwitter size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaInstagram size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaGithub size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaDiscord size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaYoutube size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Reddit" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaReddit size={24} />
+              </a>
+            </div>
           </div>
-          <h2 className="text-4xl font-semibold text-white font-poppins pt-4">
-            Coming Soon
-          </h2>
-          <div className="flex justify-center gap-6 pt-4">
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaXTwitter size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaInstagram size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaGithub size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaDiscord size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaYoutube size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Reddit" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaReddit size={24} />
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Goals and Objectives Section - index 1 */}
-      <section 
-        ref={sectionRefs[1]} 
-        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-4 sm:p-10 lg:p-20 z-20 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[1] ? 'blur-underneath' : ''}`}>
-        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
-          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16 font-poppins">
-            Goals <span className="text-secondary">and</span> Objectives
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-12">
-            {/* Goal Cards */}
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Impartial Analysis
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Deliver technical feedback using pose analysis, biomechanics, and AI for actionable insights.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Progress Tracking
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Track key metrics (bar path, velocity, RIR) and visualize trends over time.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Real-Time Feedback
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Provide instant feedback during training and enable VAR-style meet verification.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Nutrition Integration
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Include calorie counting with barcode scanning and AI food picture analysis.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Community Building
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Foster collaboration between athletes and coaches through shared progress and tools.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Open Source
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Build a transparent, collaborative platform encouraging contributions.
-              </p>
+        {/* Goals Section - Mobile */}
+        <section className="py-16 px-4">
+          <div className="w-full max-w-6xl mx-auto bg-black/30 backdrop-blur-lg rounded-2xl p-6">
+            <h2 className="text-3xl font-bold text-center mb-8 font-poppins">
+              Goals <span className="text-secondary">and</span> Objectives
+            </h2>
+            <div className="space-y-4">
+              {/* Goal Cards */}
+              <div className="bg-[#111]/50 backdrop-blur-sm p-6 rounded-xl border border-secondary/20">
+                <h3 className="text-xl font-semibold mb-3 font-poppins text-secondary">
+                  Impartial Analysis
+                </h3>
+                <p className="font-inter text-gray-300">
+                  Deliver technical feedback using pose analysis, biomechanics, and AI for actionable insights.
+                </p>
+              </div>
+              <div className="bg-[#111]/50 backdrop-blur-sm p-6 rounded-xl border border-secondary/20">
+                <h3 className="text-xl font-semibold mb-3 font-poppins text-secondary">
+                  Progress Tracking
+                </h3>
+                <p className="font-inter text-gray-300">
+                  Track key metrics (bar path, velocity, RIR) and visualize trends over time.
+                </p>
+              </div>
+              <div className="bg-[#111]/50 backdrop-blur-sm p-6 rounded-xl border border-secondary/20">
+                <h3 className="text-xl font-semibold mb-3 font-poppins text-secondary">
+                  Real-Time Feedback
+                </h3>
+                <p className="font-inter text-gray-300">
+                  Provide instant feedback during training and enable VAR-style meet verification.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Features Section - index 2 */}
-      <section 
-        ref={sectionRefs[2]} 
-        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-4 sm:p-10 lg:p-20 z-30 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[2] ? 'blur-underneath' : ''}`}>
-        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
-          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16 font-poppins">
-            <span className="text-secondary">Core</span> Features
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 lg:gap-12">
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Pose Analysis
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Get technical feedback on bar path, joint angles, velocity, symmetry, and more using advanced pose estimation.
-              </p>
+        {/* Features Section - Mobile */}
+        <section className="py-16 px-4">
+          <div className="w-full max-w-6xl mx-auto bg-black/30 backdrop-blur-lg rounded-2xl p-6">
+            <h2 className="text-3xl font-bold text-center mb-8 font-poppins">
+              <span className="text-secondary">Core</span> Features
+            </h2>
+            <div className="space-y-4">
+              <div className="bg-[#111]/50 backdrop-blur-sm p-6 rounded-xl border border-secondary/20">
+                <h3 className="text-xl font-semibold mb-3 font-poppins text-secondary">
+                  Pose Analysis
+                </h3>
+                <p className="font-inter text-gray-300">
+                  Get technical feedback on bar path, joint angles, velocity, symmetry, and more using advanced pose estimation.
+                </p>
+              </div>
+              <div className="bg-[#111]/50 backdrop-blur-sm p-6 rounded-xl border border-secondary/20">
+                <h3 className="text-xl font-semibold mb-3 font-poppins text-secondary">
+                  AI-Powered Insights
+                </h3>
+                <p className="font-inter text-gray-300">
+                  Leverage custom LLMs and Google Gemini for actionable insights tailored to your technique, goals, and injury prevention.
+                </p>
+              </div>
             </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Progress Tracking
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Visualize your improvements over time with detailed metrics and charts. Monitor trends and set performance goals.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                AI-Powered Insights
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Leverage custom LLMs and Google Gemini for actionable insights tailored to your technique, goals, and injury prevention.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Nutrition Tracking
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Integrated calorie counter with barcode scanning and AI food picture analysis to monitor your diet effectively.
-              </p>
-            </div>
-          </div>
-          {/* Read More Button */}
-          <div className="text-center mt-12">
-            <Link href="/features" className="inline-block px-8 py-3 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200 text-base">
+            <div className="text-center mt-8">
+              <Link href="/features" className="inline-block px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200 text-base">
                 Learn More About Features
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Metrics Section - index 3 */}
-      <section 
-        ref={sectionRefs[3]} 
-        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-4 sm:p-10 lg:p-20 z-40 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[3] ? 'blur-underneath' : ''}`}>
-        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
-          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16 font-poppins">
-            Key <span className="text-secondary">Metrics</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 lg:gap-12">
-            {/* Metric Cards */}
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Pose Accuracy
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Target: 95% accuracy for pose detection across diverse body types.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Feedback Precision
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Target: 90% alignment of AI feedback with biomechanical principles.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Real-Time Latency
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Target: Feedback latency under 500ms for live sessions.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                User Retention
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Target: 70% monthly retention rate.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Community Engagement
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Target: 50% monthly active users engaging with community features.
-              </p>
-            </div>
-            <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
-              <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
-                Platform Scalability
-              </h3>
-              <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
-                Target: Support 10,000+ concurrent users without degradation.
-              </p>
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Open Questions Section - index 4 */}
-      <section 
-        ref={sectionRefs[4]} 
-        className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-4 sm:p-10 lg:p-20 z-50 transition-filter duration-300 ease-in-out ${blurredSections[4] ? 'blur-underneath' : ''}`}>
-        <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-6 sm:p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
-          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-8 sm:mb-16 font-poppins">
-            Open <span className="text-secondary">Questions</span>
-          </h2>
-          <div className="space-y-3 sm:space-y-4">
-            {
-              [
+        {/* Metrics Section - Mobile */}
+        <section className="py-16 px-4">
+          <div className="w-full max-w-6xl mx-auto bg-black/30 backdrop-blur-lg rounded-2xl p-6">
+            <h2 className="text-3xl font-bold text-center mb-8 font-poppins">
+              Key <span className="text-secondary">Metrics</span>
+            </h2>
+            <div className="space-y-4">
+              <div className="bg-[#111]/50 backdrop-blur-sm p-6 rounded-xl border border-secondary/20">
+                <h3 className="text-xl font-semibold mb-3 font-poppins text-secondary">
+                  Pose Accuracy
+                </h3>
+                <p className="font-inter text-gray-300">
+                  Target: 95% accuracy for pose detection across diverse body types.
+                </p>
+              </div>
+              <div className="bg-[#111]/50 backdrop-blur-sm p-6 rounded-xl border border-secondary/20">
+                <h3 className="text-xl font-semibold mb-3 font-poppins text-secondary">
+                  Real-Time Latency
+                </h3>
+                <p className="font-inter text-gray-300">
+                  Target: Feedback latency under 500ms for live sessions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Questions Section - Mobile */}
+        <section className="py-16 px-4 pb-32">
+          <div className="w-full max-w-6xl mx-auto bg-black/30 backdrop-blur-lg rounded-2xl p-6">
+            <h2 className="text-3xl font-bold text-center mb-8 font-poppins">
+              Open <span className="text-secondary">Questions</span>
+            </h2>
+            <div className="space-y-3">
+              {[
                 "What specific datasets will be used to train the custom LLM?",
                 "Should Google Gemini AI be the default reasoning engine, or selectable?",
                 "What additional features should be prioritized for the calorie counter?",
-                "Should the dedicated camera be a standalone product or integrated accessory?",
-                "Should community features be included in the MVP or added later?",
-                "What pricing model should be used for the meet verification tier?",
-                "Which open-source license (MIT or Apache 2.0) is most appropriate?",
-                "What infrastructure is needed for scalable real-time analysis?",
-                "What marketing and launch strategy should be employed?",
               ].map((question, index) => (
                 <p 
                   key={index} 
-                  className={`font-inter text-base sm:text-lg p-3 sm:p-4 rounded ${index % 2 === 0 ? 'bg-white/5' : 'bg-transparent'} transition-colors duration-200`}
+                  className={`font-inter text-base p-3 rounded ${index % 2 === 0 ? 'bg-white/5' : 'bg-transparent'}`}
                 >
                   <span className="text-secondary mr-2">?</span> {question}
                 </p>
-              ))
-            }
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
-      {/* Hero Section Again - index 5 (Now with highest z-index) */}
-      <section 
-        className={`sticky top-0 min-h-screen flex flex-col items-center justify-center bg-primary p-4 sm:p-10 text-center z-60 transition-filter duration-300 ease-in-out`}>
-        <div className="space-y-4 sm:space-y-6">
-          <h1 className="text-4xl sm:text-6xl font-bold text-secondary font-poppins">
-            Virtara
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-300 font-inter max-w-2xl mx-auto">
-            Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
-          </p>
-          <div className="pt-2 sm:pt-4">
-            <p className="text-base sm:text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
-            <form className="flex flex-col sm:flex-row sm:items-center justify-center gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="px-4 py-2.5 rounded-md text-white bg-black/30 placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 w-full sm:w-auto sm:flex-grow"
-                aria-label="Email for updates"
-              />
-              <button
-                type="submit"
-                className="px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200"
-              >
-                Notify Me
-              </button>
-            </form>
+      {/* Desktop Layout - Original sticky sections */}
+      <div className="hidden md:block">
+        {/* Hero Section - index 0 */}
+        <section 
+          ref={sectionRefs[0]} 
+          className={`sticky top-0 min-h-screen flex flex-col items-center justify-center bg-primary p-10 text-center z-10 transition-filter duration-300 ease-in-out ${blurredSections[0] ? 'blur-underneath' : ''}`}>
+          <div className="space-y-6">
+            <h1 className="text-6xl font-bold text-secondary font-poppins">
+              Virtara
+            </h1>
+            <p className="text-xl text-gray-300 font-inter max-w-2xl mx-auto">
+              Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
+            </p>
+            <div className="pt-4">
+              <p className="text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
+              <form className="flex flex-row items-center justify-center gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="px-4 py-2.5 rounded-md text-white bg-black/30 placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 w-auto flex-grow max-w-md"
+                  aria-label="Email for updates"
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200"
+                >
+                  Notify Me
+                </button>
+              </form>
+            </div>
+            <h2 className="text-4xl font-semibold text-white font-poppins pt-4">
+              Coming Soon
+            </h2>
+            <div className="flex justify-center gap-6 pt-4">
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaXTwitter size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaInstagram size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaGithub size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaDiscord size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaYoutube size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Reddit" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaReddit size={24} />
+              </a>
+            </div>
           </div>
-          <h2 className="text-4xl font-semibold text-white font-poppins pt-4">
-            Coming Soon
-          </h2>
-          <div className="flex justify-center gap-6 pt-4">
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaXTwitter size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaInstagram size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaGithub size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaDiscord size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaYoutube size={24} />
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Reddit" className="text-secondary hover:text-white transition-colors duration-200">
-              <FaReddit size={24} />
-            </a>
+        </section>
+
+        {/* Goals Section - index 1 */}
+        <section 
+          ref={sectionRefs[1]} 
+          className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-10 lg:p-20 z-20 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[1] ? 'blur-underneath' : ''}`}>
+          <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
+            <h2 className="text-5xl font-bold text-center mb-16 font-poppins">
+              Goals <span className="text-secondary">and</span> Objectives
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+              {/* Goal Cards */}
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Impartial Analysis
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Deliver technical feedback using pose analysis, biomechanics, and AI for actionable insights.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Progress Tracking
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Track key metrics (bar path, velocity, RIR) and visualize trends over time.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Real-Time Feedback
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Provide instant feedback during training and enable VAR-style meet verification.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Nutrition Integration
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Include calorie counting with barcode scanning and AI food picture analysis.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Community Building
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Foster collaboration between athletes and coaches through shared progress and tools.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Open Source
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Build a transparent, collaborative platform encouraging contributions.
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Features Section - index 2 */}
+        <section 
+          ref={sectionRefs[2]} 
+          className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-10 lg:p-20 z-30 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[2] ? 'blur-underneath' : ''}`}>
+          <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
+            <h2 className="text-5xl font-bold text-center mb-16 font-poppins">
+              <span className="text-secondary">Core</span> Features
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Pose Analysis
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Get technical feedback on bar path, joint angles, velocity, symmetry, and more using advanced pose estimation.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Progress Tracking
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Visualize your improvements over time with detailed metrics and charts. Monitor trends and set performance goals.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  AI-Powered Insights
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Leverage custom LLMs and Google Gemini for actionable insights tailored to your technique, goals, and injury prevention.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Nutrition Tracking
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Integrated calorie counter with barcode scanning and AI food picture analysis to monitor your diet effectively.
+                </p>
+              </div>
+            </div>
+            <div className="text-center mt-12">
+              <Link href="/features" className="inline-block px-8 py-3 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200 text-base">
+                Learn More About Features
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Metrics Section - index 3 */}
+        <section 
+          ref={sectionRefs[3]} 
+          className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-10 lg:p-20 z-40 mask-fade-bottom transition-filter duration-300 ease-in-out ${blurredSections[3] ? 'blur-underneath' : ''}`}>
+          <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
+            <h2 className="text-5xl font-bold text-center mb-16 font-poppins">
+              Key <span className="text-secondary">Metrics</span>
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Pose Accuracy
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Target: 95% accuracy for pose detection across diverse body types.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Feedback Precision
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Target: 90% alignment of AI feedback with biomechanical principles.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Real-Time Latency
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Target: Feedback latency under 500ms for live sessions.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  User Retention
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Target: 70% monthly retention rate.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Community Engagement
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Target: 50% monthly active users engaging with community features.
+                </p>
+              </div>
+              <div className="group bg-[#111]/50 backdrop-blur-sm p-8 rounded-xl border border-secondary/20 hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-secondary/20">
+                <h3 className="text-2xl font-semibold mb-4 font-poppins text-secondary group-hover:text-white transition-colors duration-300">
+                  Platform Scalability
+                </h3>
+                <p className="font-inter text-gray-300 group-hover:text-white transition-colors duration-300">
+                  Target: Support 10,000+ concurrent users without degradation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Questions Section - index 4 */}
+        <section 
+          ref={sectionRefs[4]} 
+          className={`sticky top-0 min-h-screen flex flex-col justify-center items-center bg-primary text-white p-10 lg:p-20 z-50 transition-filter duration-300 ease-in-out ${blurredSections[4] ? 'blur-underneath' : ''}`}>
+          <div className="w-full max-w-6xl bg-black/30 backdrop-blur-lg rounded-2xl p-10 lg:p-16 opacity-0 translate-y-10 animate-fade-in-up">
+            <h2 className="text-5xl font-bold text-center mb-16 font-poppins">
+              Open <span className="text-secondary">Questions</span>
+            </h2>
+            <div className="space-y-4">
+              {
+                [
+                  "What specific datasets will be used to train the custom LLM?",
+                  "Should Google Gemini AI be the default reasoning engine, or selectable?",
+                  "What additional features should be prioritized for the calorie counter?",
+                  "Should the dedicated camera be a standalone product or integrated accessory?",
+                  "Should community features be included in the MVP or added later?",
+                  "What pricing model should be used for the meet verification tier?",
+                  "Which open-source license (MIT or Apache 2.0) is most appropriate?",
+                  "What infrastructure is needed for scalable real-time analysis?",
+                  "What marketing and launch strategy should be employed?",
+                ].map((question, index) => (
+                  <p 
+                    key={index} 
+                    className={`font-inter text-base sm:text-lg p-3 sm:p-4 rounded ${index % 2 === 0 ? 'bg-white/5' : 'bg-transparent'} transition-colors duration-200`}
+                  >
+                    <span className="text-secondary mr-2">?</span> {question}
+                  </p>
+                ))
+              }
+            </div>
+          </div>
+        </section>
+
+        {/* Final Hero Section - Highest z-index */}
+        <section 
+          className={`sticky top-0 min-h-screen flex flex-col items-center justify-center bg-primary p-10 text-center z-60 transition-filter duration-300 ease-in-out`}>
+          <div className="space-y-6">
+            <h1 className="text-6xl font-bold text-secondary font-poppins">
+              Virtara
+            </h1>
+            <p className="text-xl text-gray-300 font-inter max-w-2xl mx-auto">
+              Platform for Exercise Analysis, using state of the art pose analysis and large language models to provide objective feedback about your performance.
+            </p>
+            <div className="pt-4">
+              <p className="text-lg text-gray-400 font-inter mb-2">Stay updated:</p>
+              <form className="flex flex-row items-center justify-center gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="px-4 py-2.5 rounded-md text-white bg-black/30 placeholder-gray-400 border border-white/10 focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all duration-200 w-auto flex-grow max-w-md"
+                  aria-label="Email for updates"
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-2.5 rounded-md border border-secondary text-secondary font-semibold font-poppins hover:bg-secondary/50 hover:text-white transition-colors duration-200"
+                >
+                  Notify Me
+                </button>
+              </form>
+            </div>
+            <h2 className="text-4xl font-semibold text-white font-poppins pt-4">
+              Coming Soon
+            </h2>
+            <div className="flex justify-center gap-6 pt-4">
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaXTwitter size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaInstagram size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaGithub size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Discord" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaDiscord size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaYoutube size={24} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Reddit" className="text-secondary hover:text-white transition-colors duration-200">
+                <FaReddit size={24} />
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
